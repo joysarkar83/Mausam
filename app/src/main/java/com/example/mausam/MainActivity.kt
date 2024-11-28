@@ -22,8 +22,6 @@ import java.util.Date
 import java.util.Locale
 import java.util.Objects
 
-//e3c604123ea3290088442bcbabc77d33
-
 class MainActivity : AppCompatActivity() {
     private val binding: ActivityMainBinding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
@@ -64,7 +62,7 @@ class MainActivity : AppCompatActivity() {
             .baseUrl("https://api.openweathermap.org/data/2.5/")
             .build().create(api_interface::class.java)
 
-        val response = retrofit.getWeatherData(cityname, "e3c604123ea3290088442bcbabc77d33", "metric")
+        val response = retrofit.getWeatherData(cityname, "<API_Key>", "metric")
         response.enqueue(object : Callback<openweather> {
             override fun onResponse(call: Call<openweather>, response: Response<openweather>) {
                 val responseBody = response.body()
